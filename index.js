@@ -17,18 +17,13 @@ app.post('/split-payments/compute', (req, res) => {
     return precedenceOrder[a.SplitType] - precedenceOrder[b.SplitType];
   });
 
-  console.log(sortedSplitInfo)
-
   let balance = Amount;
   const splitBreakdown = [];
   let totalInstanceOfRatio = sortedSplitInfo.filter(entity => entity.SplitType === 'RATIO').length
   let openingRatioBalance = 0
-  console.log(totalInstanceOfRatio)
 
   for (const splitEntity of sortedSplitInfo) {
     let splitAmount = 0;
-
-    
 
     switch (splitEntity.SplitType) {
       case 'FLAT':
@@ -65,10 +60,6 @@ app.post('/split-payments/compute', (req, res) => {
   if (balance < 0) {
     return res.status(400).json({ error: 'Final balance cannot be less than 0' });
   }
-
-//   if (balance > 0) {
-//     return res.status(400).json({ error: 'Sum of split amounts exceeds transaction amount' });
-//   }
 
   // Prepare response
   const response = {
