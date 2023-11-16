@@ -1,0 +1,17 @@
+{
+  "name": "sendstackvest-assessment",
+  "version": "1.0.0",
+  "description": "sendstackvest split payment assessment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abiodun Abidoye",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "nodeman": "^1.1.2",
+    "uuid": "^9.0.1"
+  }
+}
